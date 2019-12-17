@@ -1,0 +1,15 @@
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: todo-app-ingress
+  namespace: development
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: todo.app.com
+    http:
+      paths:
+      - backend:
+          serviceName: todo-client-service
+          servicePort: 8080
