@@ -30,7 +30,7 @@ After setting up the dashboard and Helm, it's time to set up a network LoadBalan
 
 If you wish to know more about the MetalLB, check on the [official page](https://metallb.universe.tf/)
 
-Here is the Kubernetes dashboard with the metallb installed:
+Here is the Kubernetes dashboard with the MetalLB installed:
 
 ![alt text](https://github.com/victor-frag/monitoring-stack/blob/master/pics/Kubernetes_metallb.PNG "MetalLB")
 
