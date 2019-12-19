@@ -61,6 +61,15 @@ Since this sample application does not use a proxy, we need to create an Ingress
 
 After that, you should be able to access the application using the url http://todo.app.com/
 
+## Login Screen
+![alt text](https://github.com/victor-frag/monitoring-stack/blob/master/pics/App_login.PNG "Login Screen")
+
+## Signup Screen
+![alt text](https://github.com/victor-frag/monitoring-stack/blob/master/pics/App_signup.PNG "Signup Screen")
+
+## Logged Screen
+![alt text](https://github.com/victor-frag/monitoring-stack/blob/master/pics/App_logged.PNG "Logged Screen")
+
 # Monitoring stack
 
 ## Prometheus
@@ -85,6 +94,8 @@ To install the Prometheus, run the command below using the values.yaml on this r
 - helm install stable/prometheus --name prometheus --namespace monitoring
 
 You should be able to access the Prometheus page by accessing the address http://prometheus.app.com/
+
+![alt text](https://github.com/victor-frag/monitoring-stack/blob/master/pics/Prometheus.PNG "Prometheus")
 
 ## Grafana
 To install Grafana on our cluster, we will use the [official helm repo](https://github.com/helm/charts) and use the [Grafana chart](https://github.com/helm/charts/tree/master/stable/grafana).
@@ -117,3 +128,9 @@ After grab the password, try to log with the user: admin
 As soon as you log into Grafana, you need to setup a datasource, in our case, it will be Prometheus. When you get to the Prometheus condifuration inside the grafana, you have a couple options to use as URL, but it's a good practice to use the [DNS that Kubernetes](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) offer for us for the services, in our case we can use the http://prometheus-server.monitoring:8081.
 
 Now you can create a dashboard or import one, for just test purpouse you can import a dashboard with ID 1621 just to check if it is working.
+
+![alt text](https://github.com/victor-frag/monitoring-stack/blob/master/pics/Grafana_kubernetes.PNG "Grafana Kubernetes")
+
+There is a dashboard for capture metrics of NGINX Controller when he is installed inside a Kubernetes, you just need to import a JSON from [this repo](https://github.com/kubernetes/ingress-nginx/tree/master/deploy/grafana/dashboards) and you will get a NGINX dashboard.
+
+![alt text](https://github.com/victor-frag/monitoring-stack/blob/master/pics/Grafana_nginx.PNG "Grafana NGINX")
