@@ -30,6 +30,10 @@ After setting up the dashboard and Helm, it's time to set up a network LoadBalan
 
 If you wish to know more about the MetalLB, check on the [official page](https://metallb.universe.tf/)
 
+Here is the Kubernetes dashboard with the metallb installed:
+
+![alt text](https://github.com/victor-frag/monitoring-stack/blob/master/pics/Kubernetes_metallb.PNG "MetalLB")
+
 ## NGINX
 Follow the instructions on the NGINX Installation guide, feel free to install using the kubectl or the helm. Remember that our setup here is using a Baremetal, so there is specific instructions for the Baremetal environment.
 
@@ -40,6 +44,10 @@ Since we're using a Baremetal solution and we are using the MetalLB as a LoadBal
 https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/baremetal/service-nodeport.yaml
 
 This will expose the NGINX with an IP produced by the MetalLB.
+
+Here is the Kubernetes dashboard with the NGINX installed:
+
+![alt text](https://github.com/victor-frag/monitoring-stack/blob/master/pics/Kubernetes_nginx.PNG "NGINX")
 
 ## Sample Application
 The application required for this work needs to have a Proxy, Frontend, Backend and Database.
@@ -60,6 +68,9 @@ Since this sample application does not use a proxy, we need to create an Ingress
 - kubectl create -f ingress.yaml
 
 After that, you should be able to access the application using the url http://todo.app.com/
+
+## Kubernetes Dashboard Sample Application
+![alt text](https://github.com/victor-frag/monitoring-stack/blob/master/pics/Kubernetes_development.PNG "Sample Application")
 
 ## Login Screen
 ![alt text](https://github.com/victor-frag/monitoring-stack/blob/master/pics/App_login.PNG "Login Screen")
@@ -92,6 +103,10 @@ Since we are using the NGINX to access the Prometheus, it is necessary to do the
 To install the Prometheus, run the command below using the values.yaml on this repository.
 
 - helm install stable/prometheus --name prometheus --namespace monitoring
+
+Here is the dashboard on the monitoring namespace(Prometheus + Grafana):
+
+![alt text](https://github.com/victor-frag/monitoring-stack/blob/master/pics/Kubernetes_monitoring.PNG "Monitoring")
 
 You should be able to access the Prometheus page by accessing the address http://prometheus.app.com/
 
