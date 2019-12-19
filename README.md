@@ -50,7 +50,7 @@ Before you install the application on your Kubernetes there are a few important 
 
 1. One of the steps it's to set the server address in the client's dockerfile, so you need to setup this ip address depending on what kind of service you create to access the server. In this case, just for testing purpouse, I created the service as a LoadBalancer.
 2. In the configmap which the server uses, there is an environment variable which represents the address that will have the access granted to the server, so you need to setup this url depending on how you will access your application. In this case i used the URL http://todo.app.com/ but you need to do a few things in order to use a URL like this.
-3. You need to add a new configuration on the hosts file to map the IP of the NGINX Controller to the name todo.app.com.
+3. You need to add a new entry on the hosts file to map the IP of the NGINX Controller to the name todo.app.com.
 4. Since we are going to access the application trought the address todo.app.com, this will be the URL that needs to be set on the configmap.
 
 If you just try to access the todo.app.com now, it will not work because there is no Ingress resource created in the Ingress Controller to resolve this name, so, the next step will be the Ingress resource creation.
